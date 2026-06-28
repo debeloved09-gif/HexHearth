@@ -92,9 +92,9 @@ function pawnMoves(
     if (t && t.color !== piece.color) {
       pushPawn(out, from, toK, piece, t);
     } else if (!t && enPassantTarget && enPassantTarget === toK) {
-      // En passant: enemy pawn sits one step "forward" past the target square.
-      const capQ = q + fwd.q;
-      const capR = r + fwd.r;
+      // En passant: enemy pawn sits one step behind the target square.
+      const capQ = q - fwd.q;
+      const capR = r - fwd.r;
       const capK = key(capQ, capR);
       const ep = board.get(capK);
       if (ep && ep.color !== piece.color && ep.type === "P") {

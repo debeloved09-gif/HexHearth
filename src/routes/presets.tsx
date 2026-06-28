@@ -27,19 +27,21 @@ export const PRESET_STORAGE_KEY = "hexchess:preset";
 export const Route = createFileRoute("/presets")({
   head: () => ({
     meta: [
-      { title: "Presets — Featured Hex Chess Positions" },
+      { title: "Presets — HexHearth Featured Positions" },
       {
         name: "description",
         content:
-          "Hand-crafted hex chess positions for opening, middlegame, and endgame practice. Pick a preset and jump straight into the action.",
+          "Six hand-crafted HexHearth positions for opening, middlegame, and endgame practice. Choose a preset and jump directly into a fresh game.",
       },
-      { property: "og:title", content: "Presets — Featured Hex Chess Positions" },
+      { property: "og:title", content: "Presets — HexHearth Featured Positions" },
       {
         property: "og:description",
         content:
-          "Five medieval-named starting positions for Hex Chess: openings, middlegame studies, and endgame puzzles.",
+          "Six detailed HexHearth positions crafted for tactical and strategic training across all phases of play.",
       },
+      { property: "og:url", content: "https://hexhearth.app/presets" },
     ],
+    links: [{ rel: "canonical", href: "https://hexhearth.app/presets" }],
   }),
   component: PresetsPage,
 });
@@ -78,17 +80,22 @@ function PresetsPage() {
           </p>
         </header>
 
-        <ul className="grid gap-6 md:grid-cols-2">
+        <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {PRESETS.map((p) => (
             <li key={p.id}>
-              <article className="group flex flex-col h-full rounded-2xl border border-border bg-card/60 overflow-hidden shadow-lg hover:shadow-2xl hover:border-primary/60 transition-all">
-                <div className="aspect-[4/3] bg-background/30 flex items-center justify-center p-3 border-b border-border">
+              <button
+                type="button"
+                onClick={() => start(p)}
+                aria-label={`Start ${p.name}`}
+                className="group flex flex-col h-full rounded-3xl border border-border bg-card/70 overflow-hidden shadow-lg transition hover:shadow-2xl hover:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+              >
+                <div className="aspect-[4/3] bg-background/10 flex items-center justify-center p-3 border-b border-border">
                   <MiniBoard preset={p} />
                 </div>
 
-                <div className="flex flex-col flex-1 p-5 gap-3">
+                <div className="flex flex-col flex-1 p-5 gap-3 text-left">
                   <div className="flex items-start justify-between gap-3">
-                    <h2 className="text-xl font-semibold tracking-tight">
+                    <h2 className="text-xl font-semibold tracking-tight text-left">
                       {p.name}
                     </h2>
                     <span className="shrink-0 text-[10px] uppercase tracking-wider font-semibold rounded-full px-2 py-1 bg-primary/15 text-primary border border-primary/30">
@@ -103,19 +110,14 @@ function PresetsPage() {
                     {p.description}
                   </p>
 
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="text-xs text-muted-foreground">
-                      {p.turn === "w" ? "White" : "Black"} to move
+                  <div className="flex items-center justify-between pt-2 text-xs text-muted-foreground">
+                    <span>{p.turn === "w" ? "White" : "Black"} to move</span>
+                    <span className="font-semibold uppercase tracking-[0.2em]">
+                      Tap to start
                     </span>
-                    <button
-                      onClick={() => start(p)}
-                      className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition"
-                    >
-                      Play this position
-                    </button>
                   </div>
                 </div>
-              </article>
+              </button>
             </li>
           ))}
         </ul>

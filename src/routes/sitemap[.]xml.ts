@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://hexchess2pl.lovable.app";
+const BASE_URL = "https://hexhearth.app";
 
 interface SitemapEntry {
   path: string;
@@ -15,6 +15,8 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/presets", changefreq: "weekly", priority: "0.9" },
+          { path: "/bots", changefreq: "monthly", priority: "0.8" },
           { path: "/how-to-play", changefreq: "monthly", priority: "0.8" },
         ];
 

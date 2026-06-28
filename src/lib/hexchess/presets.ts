@@ -162,12 +162,118 @@ const lastVigil: Preset = {
   ]),
 };
 
+const solarForge: Preset = {
+  id: "solar-forge",
+  name: "Solar Forge",
+  phase: "Opening",
+  turn: "w",
+  tagline: "A heated opening on the centre files.",
+  description:
+    "White has pushed the central pawn while knights and queens jockey for control of the forge. Black answers with mirrored pressure on the flanks, making every capture feel like molten metal striking steel.",
+  board: build(
+    withMods(
+      initialSpec,
+      [[0, -1], [2, -5], [0, 1], [2, 1]],
+      [[0, 0, "w", "P"], [2, -4, "w", "N"], [0, 2, "b", "P"], [2, 0, "b", "N"]],
+    ),
+  ),
+};
+
+const nebulaGambit: Preset = {
+  id: "nebula-gambit",
+  name: "Nebula Gambit",
+  phase: "Opening",
+  turn: "b",
+  tagline: "A sacrifice wrapped in cosmic motion.",
+  description:
+    "White has opened the centre and offered a knight for rapid development. Black must decide whether to accept the gambit or burn fuel to retain the centre.",
+  board: build(
+    withMods(
+      initialSpec,
+      [[-2, -3], [-1, -4], [0, -1], [1, 1], [0, 1]],
+      [[-2, -2, "w", "N"], [-1, -3, "w", "Q"], [0, 0, "w", "P"], [1, 0, "b", "P"], [0, 2, "b", "N"]],
+    ),
+  ),
+};
+
+const quantumSiege: Preset = {
+  id: "quantum-siege",
+  name: "Quantum Siege",
+  phase: "Middlegame",
+  turn: "w",
+  tagline: "Rooks on open files, queens in the centre.",
+  description:
+    "The battlefield has thinned and the major pieces have found open lanes. White’s heavy artillery eyes Black’s king while pawns lock the centre into a slow-burning siege.",
+  board: build(
+    withMods(
+      initialSpec,
+      [[-3, -2], [3, -5], [-1, -1], [1, 1], [0, -1], [0, 1]],
+      [[-3, -1, "w", "R"], [3, -4, "w", "R"], [-1, 0, "w", "P"], [1, 0, "b", "P"], [0, 0, "w", "Q"], [0, 2, "b", "B"]],
+    ),
+  ),
+};
+
+const starfieldBreak: Preset = {
+  id: "starfield-break",
+  name: "Starfield Break",
+  phase: "Middlegame",
+  turn: "b",
+  tagline: "The centre has collapsed into sparks.",
+  description:
+    "Multiple pawn chains have fractured and both sides are chasing weaknesses across the board. The first player to seize the open files will steer the battle toward the stars.",
+  board: build(
+    withMods(
+      initialSpec,
+      [[3, -4], [1, -2], [-2, 5], [-1, 5], [0, 3], [0, -3]],
+      [[3, -3, "w", "B"], [1, -1, "w", "P"], [-2, 4, "b", "N"], [-1, 4, "b", "P"], [0, 1, "b", "P"], [0, -2, "w", "N"]],
+    ),
+  ),
+};
+
+const voidOutpost: Preset = {
+  id: "void-outpost",
+  name: "Void Outpost",
+  phase: "Endgame",
+  turn: "w",
+  tagline: "A lone rook defends a distant bastion.",
+  description:
+    "The armies are gone. White’s rook and king must close in before Black’s passed pawn reaches the back rank. Precision and patience decide the outpost’s fate.",
+  board: build([
+    [1, -3, "w", "K"],
+    [0, 1, "w", "R"],
+    [-1, 0, "w", "P"],
+    [1, 3, "b", "K"],
+    [-1, 3, "b", "P"],
+    [3, 0, "b", "R"],
+    [2, -1, "w", "B"],
+  ]),
+};
+
+const echoesOfWar: Preset = {
+  id: "echoes-of-war",
+  name: "Echoes of War",
+  phase: "Endgame",
+  turn: "b",
+  tagline: "Queens and knights dance over a shattered field.",
+  description:
+    "White’s queen probes the enemy camp while Black’s knight and pawn position themselves for one last counterstrike. The final moves will echo across the empty board.",
+  board: build([
+    [1, -4, "w", "K"],
+    [0, 3, "w", "Q"],
+    [-2, -1, "w", "B"],
+    [3, 1, "b", "K"],
+    [4, 0, "b", "P"],
+    [2, 2, "b", "N"],
+  ]),
+};
+
 export const PRESETS: Preset[] = [
-  dawnsFirstLight,
-  ironPhalanx,
-  twinLances,
-  sunkenTower,
-  lastVigil,
+  solarForge,
+  nebulaGambit,
+  quantumSiege,
+  starfieldBreak,
+  voidOutpost,
+  echoesOfWar,
 ];
 
 export function getPreset(id: string): Preset | undefined {

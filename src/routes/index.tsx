@@ -16,19 +16,19 @@ import { PRESET_STORAGE_KEY } from "@/routes/presets";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hex Chess — Play Gliński's Hexagonal Chess Online Free" },
+      { title: "HexHearth — Play Gliński's Hexagonal Chess Online Free" },
       {
         name: "description",
         content:
-          "Hex Chess: play Gliński's Hexagonal Chess free online. 91-hex board, full rules, pass-and-play with smooth board rotation. No signup.",
+          "HexHearth: play Gliński's Hexagonal Chess online. 91-hex board, full rules, pass-and-play with smooth board rotation.",
       },
       { name: "keywords", content: "hex chess, hexagonal chess, Gliński chess, hex chess online, play hexagonal chess, 91 hex chess board" },
-      { property: "og:title", content: "Hex Chess — Play Gliński's Hexagonal Chess Online" },
-      { property: "og:description", content: "Free online Hex Chess. Gliński's 91-hex variant with full rules and pass-and-play." },
+      { property: "og:title", content: "HexHearth — Play Gliński's Hexagonal Chess Online" },
+      { property: "og:description", content: "Free online Gliński's Hexagonal Chess with a 91-hex board and full variant rules." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://hexchess2pl.lovable.app/" },
+      { property: "og:url", content: "https://hexhearth.app/" },
     ],
-    links: [{ rel: "canonical", href: "https://hexchess2pl.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://hexhearth.app/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
           "@type": "WebApplication",
           name: "Hex Chess",
           alternateName: "Hexagonal Chess",
-          url: "https://hexchess2pl.lovable.app/",
+          url: "https://hexhearth.app/",
           description:
             "Free browser game for Gliński's Hexagonal Chess on a 91-hex board with full rules and pass-and-play.",
           applicationCategory: "GameApplication",

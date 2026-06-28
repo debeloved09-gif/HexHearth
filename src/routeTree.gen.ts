@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PresetsRouteImport } from './routes/presets'
 import { Route as HowToPlayRouteImport } from './routes/how-to-play'
+import { Route as BotsRouteImport } from './routes/bots'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -29,6 +30,11 @@ const HowToPlayRoute = HowToPlayRouteImport.update({
   path: '/how-to-play',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BotsRoute = BotsRouteImport.update({
+  id: '/bots',
+  path: '/bots',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bots': typeof BotsRoute
   '/how-to-play': typeof HowToPlayRoute
   '/presets': typeof PresetsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bots': typeof BotsRoute
   '/how-to-play': typeof HowToPlayRoute
   '/presets': typeof PresetsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bots': typeof BotsRoute
   '/how-to-play': typeof HowToPlayRoute
   '/presets': typeof PresetsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/how-to-play' | '/presets' | '/sitemap.xml'
+  fullPaths: '/' | '/bots' | '/how-to-play' | '/presets' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/how-to-play' | '/presets' | '/sitemap.xml'
-  id: '__root__' | '/' | '/how-to-play' | '/presets' | '/sitemap.xml'
+  to: '/' | '/bots' | '/how-to-play' | '/presets' | '/sitemap.xml'
+  id: '__root__' | '/' | '/bots' | '/how-to-play' | '/presets' | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BotsRoute: typeof BotsRoute
   HowToPlayRoute: typeof HowToPlayRoute
   PresetsRoute: typeof PresetsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowToPlayRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bots': {
+      id: '/bots'
+      path: '/bots'
+      fullPath: '/bots'
+      preLoaderRoute: typeof BotsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BotsRoute: BotsRoute,
   HowToPlayRoute: HowToPlayRoute,
   PresetsRoute: PresetsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

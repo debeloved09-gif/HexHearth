@@ -55,7 +55,7 @@ export function GamePanel({
     <aside className="w-full md:w-80 flex flex-col gap-4 p-4 bg-card border border-border rounded-2xl shadow-xl">
       <header>
         <h1 className="text-xl font-bold tracking-tight">
-          Hex Chess — Gliński's Hexagonal Chess
+          HexHearth — Gliński's Hexagonal Chess
         </h1>
         <p className="text-xs text-muted-foreground">
           Gliński's variant · 91 hexes · Pass & Play

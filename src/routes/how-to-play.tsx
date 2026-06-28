@@ -28,11 +28,11 @@ export const Route = createFileRoute("/how-to-play")({
           "Complete guide to Gliński's Hexagonal Chess rules: board setup, piece movement, and winning conditions on a 91-hex board.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://hexchess2pl.lovable.app/how-to-play" },
+      { property: "og:url", content: "https://hexhearth.app/how-to-play" },
       {
         name: "twitter:title",
         content:
-          "How to Play Hexagonal Chess — Gliński's Hexagonal Chess Rules",
+          "How to Play HexHearth — Gliński's Hexagonal Chess Rules",
       },
       {
         name: "twitter:description",
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/how-to-play")({
     links: [
       {
         rel: "canonical",
-        href: "https://hexchess2pl.lovable.app/how-to-play",
+        href: "https://hexhearth.app/how-to-play",
       },
     ],
   }),
@@ -66,7 +66,7 @@ function HowToPlay() {
         <article>
           <header className="mb-10">
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-              How to Play Gliński's Hexagonal Chess
+              How to Play HexHearth
             </h1>
             <p className="mt-3 text-lg text-muted-foreground">
               A complete guide to the classic 91-hex variant, piece movement,
